@@ -3,7 +3,7 @@ package problem07;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Problem10Main {
+public class Problem07Main {
 
 	public static void main(String[] args) {
 		Scanner console = new Scanner(System.in);

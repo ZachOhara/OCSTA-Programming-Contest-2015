@@ -21,6 +21,7 @@ public class Problem01Main {
 		}
 		System.out.print("What are the numbers to search in? ");
 		String numberToken = console.next() + console.next() + console.nextLine();
+		console.close();
 		String[] numbers = new String[numberToken.length()/10];
 		for(int k = 0; k < numberToken.length(); k+=10){ //splitting numbers
 			numbers[k/10] = numberToken.substring(k, k+10);

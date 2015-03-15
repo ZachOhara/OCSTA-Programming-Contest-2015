@@ -10,17 +10,17 @@ public class Problem14Main {
 		Scanner console = new Scanner(System.in);
 		System.out.print("What is the width? ");
 		int chatWidth = console.nextInt();
-		System.out.println("Enter abbreviations below. Terminate input with '_ _'");
+		System.out.print("How many abbreviations? ");
+		int numberOfAbbr = console.nextInt();
+		
 		ArrayList<String> abbreviations = new ArrayList<String>();
 		ArrayList<String> expandedForm = new ArrayList<String>();
-		do {
+		for (int i = 0; i < numberOfAbbr; i++) {
 			System.out.print("Abbreviation: ");
 			abbreviations.add(console.next());
 			System.out.print("Expanded form: ");
 			expandedForm.add(console.next() + console.nextLine());
-		} while (abbreviations.get(abbreviations.size() - 1) != "_");
-		
-		int numberOfAbbr = abbreviations.size();
+		}
 
 		System.out.println("What is the message?");
 		String message = console.next() + console.nextLine();
@@ -39,7 +39,7 @@ public class Problem14Main {
 		
 		String[] messageTokens = message.split(" ");
 		String messageLine = "";
-		System.out.println(Arrays.toString(messageTokens));
+		//System.out.println(Arrays.toString(messageTokens));
 		for (int i = 0; i < messageTokens.length; i++) {
 			if (messageLine.length() + messageTokens[i].length() > chatWidth) {
 				System.out.println(messageLine);

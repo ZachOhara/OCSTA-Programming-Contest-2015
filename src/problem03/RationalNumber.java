@@ -48,7 +48,7 @@ public class RationalNumber implements Comparable<Object> {
 	
 	// Other Methods:
 	// Simplify the rational number
-	private RationalNumber simplify() {
+	public RationalNumber simplify() {
 		if (this.num == 0) {
 			this.den = 1;
 			return this;
