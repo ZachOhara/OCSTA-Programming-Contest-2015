@@ -22,6 +22,6 @@ We came in second place, beating out two other schools by just two points! Here 
 | 9       | Java     | Completed! Full credit                                   |
 | 10      | Java     | Completed! Full credit                                   |
 | 11      |          | No solution                                              |
-| 12      | Java     | Typed, but bugged; no credit                             |
+| 12      | Java     | Typed, but bugged; no credit. Has since been completed.                             |
 | 13      |          | No solution                                              |
 | 14      | Java     | Finished and working, but problems with input; no credit. Has since been completed. |
