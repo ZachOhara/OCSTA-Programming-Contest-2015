@@ -13,8 +13,7 @@ We came in second place, beating out two other schools by just two points! Here 
 | ------- | ---------| -------------------------------------------------------- |
 | 1       | Java     | Typed, but bugged; no credit                             |
 | 2       |          | No solution                                              |
-| 3       | Java     | Typed, but bugs in ~~pre-existing code~~ for loops we used; no credit.
-Has since been completed.  |
+| 3       | Java     | Typed, but bugs in ~~pre-existing code~~ for loops we used; no credit. Has since been completed.  |
 | 4       | Python   | Completed! Full credit                                   |
 | 5       |          | Problem was removed from contest                         |
 | 6       | Python   | Completed! Full credit                                   |
@@ -25,4 +24,4 @@ Has since been completed.  |
 | 11      |          | No solution                                              |
 | 12      | Java     | Typed, but bugged; no credit                             |
 | 13      |          | No solution                                              |
-| 14      | Java     | Finished and working, but problems with input; no credit |
+| 14      | Java     | Finished and working, but problems with input; no credit. Has since been completed. |
