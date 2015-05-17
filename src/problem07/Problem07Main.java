@@ -1,10 +1,8 @@
 package problem07;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Problem07Main {
 
+	/*
 	public static void main(String[] args) {
 		Scanner console = new Scanner(System.in);
 		System.out.print("How big is the grid? ");
@@ -31,7 +29,7 @@ public class Problem07Main {
 		boolean success = false;
 		for (int i = 0; i < gs; i++) {
 			for (int j = 0; j < gs - 1; j++) {
-				if (isPlaceValidHoriz(l, r, i, j, thisgrid, lastgrid, gs))
+				//if (isPlaceValidHoriz(l, r, i, j, thisgrid, lastgrid, gs))
 			}
 			if (success)
 				break;
@@ -48,13 +46,14 @@ public class Problem07Main {
 		return success;
 	}
 
-	public static boolean isPlaceValidVert(int t, int b, int i, int j, int[][] thisgrid,
-			int[]][] lastgrid, int gs) {
+	public static boolean isPlaceValidVert(int top, int bot, int i, int j, int[][] thisgrid,
+			int[][] lastgrid, int gs) {
 		if (i != 0 && isMismatch(thisgrid[i-1][j], top))
 			return false;
 		if (i + 1 != gs && isMismatch(thisgrid[i+2][j], bot))
 			return false;
-		if (j != 0 && (isMismatch(thisgrid[i][j-1], top) || isMismatch(thisgrid[i+1][j-1], bot)))
+		if (j != 0 && (isMismatch(thisgrid[i][j-1], top) || isMismatch(thisgrid[i+1][j-1], bot)));
+		return true; //THIS IS NOT RIGHT
 	}
 
 	public static boolean isMismatch(int a, int b) {
@@ -62,6 +61,7 @@ public class Problem07Main {
 		boolean bEven = b % 2 == 0;
 		return ((aEven || bEven) && !(aEven && bEven));
 	}
+	*/
 
 }
 

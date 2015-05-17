@@ -9,9 +9,9 @@ public class Problem10Main {
 		Scanner console = new Scanner(System.in);
 		int xC = console.nextInt();
 		int yC = console.nextInt();
-		
+
 		ArrayList<int[]> checkerCoords = new ArrayList<int[]>();
-		
+
 		int xIn;
 		int yIn;
 		do {
@@ -22,13 +22,13 @@ public class Problem10Main {
 				checkerCoords.add(coords);
 			}
 		} while (xIn != 0 && yIn != 0);
-		
+
 		console.close();
 		System.out.println();
-		
+
 		doMoves(xC, yC, checkerCoords, "");
 	}
-	
+
 	public static void doMoves(int xC, int yC, ArrayList<int[]> otherCheckers, String moveString) {
 		if (yC < 8) {
 			yC++;

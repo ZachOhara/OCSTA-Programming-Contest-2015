@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Problem09Main {
-	
+
 	public static void main(String[] args) {
 		Scanner console = new Scanner(System.in);
 		System.out.print("Photo size? ");
 		int photoWidth = console.nextInt();
 		int photoHeight = console.nextInt();
-		
+
 		System.out.print("Features? ");
 		String photoFeatureString = console.next().trim();
-		
+
 		System.out.print("\nPattern size? ");
 		int patternWidth = console.nextInt();
 		int patternHeight = console.nextInt();
-		
+
 		System.out.print("Features? ");
 		String patternFeatureString = console.next().trim();
-		
+
 		console.close();
 
 		int[][] patternFeatures = new int[patternHeight][patternWidth];
 		int[][] photoFeatures = new int[photoHeight][photoWidth];
-		
+
 		populateFromString(patternFeatures, patternFeatureString);
 		populateFromString(photoFeatures, photoFeatureString);
-		
+
 		ArrayList<int[]> matchesList = new ArrayList<int[]>();
 		for (int i = 0; i < photoHeight - patternHeight + 1; i++) {
 			for (int j = 0; j < photoWidth - patternWidth + 1; j++) {
@@ -53,9 +53,9 @@ public class Problem09Main {
 		for (int[] coordPair : matchesList) {
 			System.out.println("   position " + (coordPair[0]+1) + " " + (coordPair[1] + 1));
 		}
-		
+
 	}
-	
+
 	// take the features from a String form, and wrap them into an int array
 	private static void populateFromString(int[][] arr, String s) {
 		int charIndex = 0;

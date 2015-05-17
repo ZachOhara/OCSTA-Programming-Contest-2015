@@ -39,7 +39,7 @@ public class Problem01Main {
 				System.out.println("...no codewords.");
 		}
 	}
-	
+
 	public static String toNumber(String s){
 		String result = "";
 		for(int i = 0; i < s.length()-1; i++)

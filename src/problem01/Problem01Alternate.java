@@ -1,29 +1,32 @@
+package problem01;
+
 import java.util.*;
 
 public class Problem01Alternate {
-   
-   public static void main(String[] asdf) {
-      Scanner console = new Scanner(System.in);
-      String words = console.nextLine();
-      String number = console.nextLine();
-      String[] wordsArr = words.split(" ");
-      String[] numbersArr = new String[wordsArr.length];
-      for (int i = 0; i < numbersArr.length; i++) {
-         numbersArr[i] = toNumber(wordsArr[i]);
-      }
-      ArrayList<String> workingWords = new ArrayList<String>();
-      for (int i = 0; i < numbersArr.length; i++) {
-         if (number.indexOf(numbersArr[i]) != -1)
-            workingWords.add(wordsArr[i]);
-      }
-      if (workingWords.size() == 0)
-         System.out.println("No codewords found");
-      else 
-         for (String i : workingWords) 
-            System.out.print(i + " ");   
-   }
-   
-   public static String toNumber(String s){
+
+	public static void main(String[] asdf) {
+		Scanner console = new Scanner(System.in);
+		String words = console.nextLine();
+		String number = console.nextLine();
+		console.close();
+		String[] wordsArr = words.split(" ");
+		String[] numbersArr = new String[wordsArr.length];
+		for (int i = 0; i < numbersArr.length; i++) {
+			numbersArr[i] = toNumber(wordsArr[i]);
+		}
+		ArrayList<String> workingWords = new ArrayList<String>();
+		for (int i = 0; i < numbersArr.length; i++) {
+			if (number.indexOf(numbersArr[i]) != -1)
+				workingWords.add(wordsArr[i]);
+		}
+		if (workingWords.size() == 0)
+			System.out.println("No codewords found");
+		else 
+			for (String i : workingWords) 
+				System.out.print(i + " "); 
+	}
+
+	public static String toNumber(String s){
 		String result = "";
 		for(int i = 0; i < s.length(); i++)
 		{
@@ -46,5 +49,5 @@ public class Problem01Alternate {
 		}
 		return result;
 	}
-   
+
 }

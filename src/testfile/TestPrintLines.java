@@ -298,7 +298,7 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 	private SearchTreeNode lowestNode(SearchTreeNode node) {
 		return (node == null) ? null : ((node.left == null) ? node : lowestNode(node.left));
 	}
-	*/
+	 */
 
 	public void resetAccesses() {
 		resetAccesses(overallRoot);
