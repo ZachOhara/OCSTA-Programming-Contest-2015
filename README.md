@@ -25,3 +25,5 @@ We came in second place, beating out two other schools by just two points! Here 
 | 12      | Java     | Typed, but bugged; no credit. Has since been completed.                             |
 | 13      |          | No solution                                              |
 | 14      | Java     | Finished and working, but problems with input; no credit. Has since been completed. |
+
+This entire repository is made available under the GNU General Public License v3.0. A full copy of this license is available as the [LICENSE](LICENSE) file in this repository, or at [gnu.org/licenses](http://www.gnu.org/licenses/).
