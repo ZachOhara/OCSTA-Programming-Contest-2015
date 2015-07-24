@@ -2,7 +2,7 @@
 The Mountain View High School team's work for the 2015 OCSTA Competition at Willamete University
 
 The Team:
-* Javier Anton
+* Javier Anton ([GitHub](https://github.com/javieranton1999/))
 * Pranav Mathur ([GitHub](https://github.com/PranavMathur/))
 * Zach Ohara ([GitHub](https://github.com/ZachOhara/))
 * Spencer Warneke
@@ -13,7 +13,7 @@ We came in second place, beating out two other schools by just two points! Here 
 | ------- | ---------| -------------------------------------------------------- |
 | 1       | Java     | Typed, but bugged; no credit                             |
 | 2       |          | No solution                                              |
-| 3       | Java     | Typed, but bugs in ~~pre-existing code~~ for loops we used; no credit. Has since been completed.  |
+| 3       | Java     | Typed, but bugged; no credit. Has since been completed.  |
 | 4       | Python   | Completed! Full credit                                   |
 | 5       |          | Problem was removed from contest                         |
 | 6       | Python   | Completed! Full credit                                   |
