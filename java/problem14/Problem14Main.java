@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Problem14Main {
 
-	public static void main(String[] args) {  
+	public static void main(String[] args) {
 		Scanner console = new Scanner(System.in);
 		System.out.print("What is the width? ");
 		int chatWidth = console.nextInt();
@@ -17,14 +17,16 @@ public class Problem14Main {
 		String input = "";
 		int currentList = 0;
 		while (true) {
-			if (currentList%2 == 0) {
+			if (currentList % 2 == 0) {
 				input = console.next();
-				if (input.equals("_")) break;
+				if (input.equals("_")) {
+					break;
+				}
 				abbreviations.add(input);
-			}   
-			else
-				expandedForm.add(console.nextLine().trim());  
-			currentList++;    
+			} else {
+				expandedForm.add(console.nextLine().trim());
+			}
+			currentList++;
 		}
 
 		System.out.println(abbreviations);
@@ -39,7 +41,8 @@ public class Problem14Main {
 			do {
 				index = message.indexOf(abbreviations.get(i));
 				if (index != -1) {
-					message = message.substring(0, index) + expandedForm.get(i)
+					message =
+							message.substring(0, index) + expandedForm.get(i)
 							+ message.substring(index + abbreviations.get(i).length());
 				}
 			} while (index != -1);
@@ -47,15 +50,16 @@ public class Problem14Main {
 
 		String[] messageTokens = message.split(" ");
 		String messageLine = "";
-		//System.out.println(Arrays.toString(messageTokens));
+		// System.out.println(Arrays.toString(messageTokens));
 		for (int i = 0; i < messageTokens.length; i++) {
 			if (messageLine.length() + messageTokens[i].length() > chatWidth) {
 				System.out.println(messageLine);
 				messageLine = "";
 			}
 			messageLine += messageTokens[i] + " ";
-			if (i == messageTokens.length - 1)
+			if (i == messageTokens.length - 1) {
 				System.out.println(messageLine);
+			}
 		}
 
 	}

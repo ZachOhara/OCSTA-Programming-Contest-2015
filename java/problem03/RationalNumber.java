@@ -8,8 +8,9 @@ public class RationalNumber implements Comparable<Object> {
 	// Constructors:
 	// Construct a new RationalNumber from a given numerator and denominator
 	public RationalNumber(int n, int d) {
-		if (d == 0)
+		if (d == 0) {
 			throw new IllegalArgumentException();
+		}
 		this.num = n;
 		this.den = d;
 		this.simplify();
@@ -43,7 +44,7 @@ public class RationalNumber implements Comparable<Object> {
 
 	// Returns the approximate decimal value of this RationalNumber
 	public double decimalValue() {
-		return (double)this.num / this.den;
+		return (double) this.num / this.den;
 	}
 
 	// Other Methods:
@@ -77,45 +78,52 @@ public class RationalNumber implements Comparable<Object> {
 
 	public RationalNumber multiply(RationalNumber r) {
 		int num = this.num * r.num;
-		int den = this.den*r.den;
+		int den = this.den * r.den;
 		return new RationalNumber(num, den).simplify();
 	}
 
 	public RationalNumber divide(RationalNumber r) {
 		int num = this.num * r.den;
-		int den = this.den*r.num;
+		int den = this.den * r.num;
 		return new RationalNumber(num, den).simplify();
 	}
 
+	@Override
 	public boolean equals(Object obj) {
-		if (obj == null)
+		if (obj == null) {
 			return false;
+		}
 		return this.compareTo(obj) == 0;
 	}
 
+	@Override
 	public int compareTo(Object obj) {
 		double thisval = this.decimalValue();
 		double otherval = 0;
-		if (obj instanceof RationalNumber)
+		if (obj instanceof RationalNumber) {
 			otherval = ((RationalNumber) obj).decimalValue();
-		else if (obj instanceof Integer)
-			otherval = new Double((Integer)obj);
-		else if (obj instanceof Double)
-			otherval = (Double)(obj);
-		else
+		} else if (obj instanceof Integer) {
+			otherval = new Double((Integer) obj);
+		} else if (obj instanceof Double) {
+			otherval = (Double) (obj);
+		} else {
 			throw new ClassCastException();
+		}
 
-		if (thisval < otherval)
+		if (thisval < otherval) {
 			return -1;
-		else if (otherval < thisval)
+		} else if (otherval < thisval) {
 			return 1;
+		}
 		return 0;
 	}
 
+	@Override
 	public String toString() {
-		if (this.den == 1)
+		if (this.den == 1) {
 			return "" + this.num;
-		else
+		} else {
 			return this.num + "/" + this.den;
+		}
 	}
 }

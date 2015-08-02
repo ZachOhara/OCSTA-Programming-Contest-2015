@@ -26,8 +26,8 @@ public class Problem09Main {
 		int[][] patternFeatures = new int[patternHeight][patternWidth];
 		int[][] photoFeatures = new int[photoHeight][photoWidth];
 
-		populateFromString(patternFeatures, patternFeatureString);
-		populateFromString(photoFeatures, photoFeatureString);
+		Problem09Main.populateFromString(patternFeatures, patternFeatureString);
+		Problem09Main.populateFromString(photoFeatures, photoFeatureString);
 
 		ArrayList<int[]> matchesList = new ArrayList<int[]>();
 		for (int i = 0; i < photoHeight - patternHeight + 1; i++) {
@@ -35,11 +35,12 @@ public class Problem09Main {
 				boolean isMatch = true;
 				for (int k = 0; k < patternHeight; k++) {
 					for (int l = 0; l < patternWidth; l++) {
-						int photoAtPos = photoFeatures[i+k][j+l];
+						int photoAtPos = photoFeatures[i + k][j + l];
 						int patternAtPos = patternFeatures[k][l];
 						if (photoAtPos != 0 && patternAtPos != 0) {
-							if (photoAtPos != patternAtPos)
+							if (photoAtPos != patternAtPos) {
 								isMatch = false;
+							}
 						}
 					}
 				}
@@ -51,7 +52,7 @@ public class Problem09Main {
 		}
 		System.out.println("\nMatches at: ");
 		for (int[] coordPair : matchesList) {
-			System.out.println("   position " + (coordPair[0]+1) + " " + (coordPair[1] + 1));
+			System.out.println("   position " + (coordPair[0] + 1) + " " + (coordPair[1] + 1));
 		}
 
 	}
@@ -63,14 +64,18 @@ public class Problem09Main {
 			for (int j = 0; j < arr[i].length; j++) {
 				int intRep = -1; // the integer representation of the feature
 				String feature = s.substring(charIndex, charIndex + 1); // a single feature
-				if (feature.equals("*"))
+				if (feature.equals("*")) {
 					intRep = 0;
-				if (feature.equalsIgnoreCase("F"))
+				}
+				if (feature.equalsIgnoreCase("F")) {
 					intRep = 1;
-				if (feature.equalsIgnoreCase("S"))
+				}
+				if (feature.equalsIgnoreCase("S")) {
 					intRep = 2;
-				if (feature.equalsIgnoreCase("R"))
+				}
+				if (feature.equalsIgnoreCase("R")) {
 					intRep = 3;
+				}
 				arr[i][j] = intRep;
 				charIndex++;
 			}

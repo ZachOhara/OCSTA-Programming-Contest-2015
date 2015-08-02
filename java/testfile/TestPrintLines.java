@@ -14,72 +14,71 @@ public class TestPrintLines {
 		System.out.print("Type a line of text: ");
 		lineText = console.next() + console.nextLine();
 		console.close();
-		if (lines < 1 || lines > 25)
+		if (lines < 1 || lines > 25) {
 			throw new IllegalArgumentException("YOU HAVE FAILED THE TEST.");
+		}
 		SearchTree<String> tree = new SearchTree<>();
-		for (int i = 0; i < lines; i++)
+		for (int i = 0; i < lines; i++) {
 			tree.insert(lineText);
-		for (String i : tree)
+		}
+		for (String i : tree) {
 			System.out.println(i);
+		}
 	}
 
-}   
+}
 
 @SuppressWarnings("unchecked")
-
-class SearchTree<E extends Comparable<E>> implements Iterable<E>{
+class SearchTree<E extends Comparable<E>> implements Iterable<E> {
 
 	public SearchTreeNode overallRoot;
 
 	public SearchTree() {
-		overallRoot = null;
-	}   
+		this.overallRoot = null;
+	}
 
 	public SearchTree(E e) {
-		overallRoot = new SearchTreeNode(e);
+		this.overallRoot = new SearchTreeNode(e);
 	}
 
 	public SearchTree(SearchTreeNode node) {
-		overallRoot = node.deepCopy();
+		this.overallRoot = node.deepCopy();
 	}
 
 	public SearchTree<E> getCopy() {
-		return new SearchTree<E>(overallRoot);
-	}         
+		return new SearchTree<E>(this.overallRoot);
+	}
 
 	public SearchTreeNode getRoot() {
-		return overallRoot.deepCopy();
-	}   
+		return this.overallRoot.deepCopy();
+	}
 
 	public void insert(E e) {
-		if (overallRoot == null) {
-			overallRoot = new SearchTreeNode(e);
+		if (this.overallRoot == null) {
+			this.overallRoot = new SearchTreeNode(e);
 			return;
-		}   
-		insert(e, overallRoot);
+		}
+		this.insert(e, this.overallRoot);
 	}
 
 	private void insert(E e, SearchTreeNode node) {
 		if (e.compareTo(node.data) < 0) {
 			if (node.left != null) {
-				insert(e, node.left);
-			}
-			else {
+				this.insert(e, node.left);
+			} else {
 				node.left = new SearchTreeNode(e);
 			}
-		}
-		else if (e.compareTo(node.data) >= 0) {
+		} else if (e.compareTo(node.data) >= 0) {
 			if (node.right != null) {
-				insert(e, node.right);
-			}
-			else {
+				this.insert(e, node.right);
+			} else {
 				node.right = new SearchTreeNode(e);
 			}
 		}
 	}
 
 	public void printInorder() {
-		printInorder(overallRoot);
+		this.printInorder(this.overallRoot);
 		System.out.println();
 	}
 
@@ -88,18 +87,18 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 			return;
 		}
 		if (node.left != null) {
-			printInorder(node.left);
+			this.printInorder(node.left);
 		}
 
-		System.out.print(node.data.toString()+" ");
+		System.out.print(node.data.toString() + " ");
 
 		if (node.right != null) {
-			printInorder(node.right);
+			this.printInorder(node.right);
 		}
 	}
 
 	public void printPreorder() {
-		printPreorder(overallRoot);
+		this.printPreorder(this.overallRoot);
 		System.out.println();
 	}
 
@@ -108,19 +107,19 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 			return;
 		}
 
-		System.out.print(node.data.toString()+" ");
+		System.out.print(node.data.toString() + " ");
 
 		if (node.left != null) {
-			printPreorder(node.left);
+			this.printPreorder(node.left);
 		}
 
 		if (node.right != null) {
-			printPreorder(node.right);
+			this.printPreorder(node.right);
 		}
 	}
 
 	public void printPostorder() {
-		printPostorder(overallRoot);
+		this.printPostorder(this.overallRoot);
 		System.out.println();
 	}
 
@@ -129,40 +128,40 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 			return;
 		}
 		if (node.left != null) {
-			printPostorder(node.left);
+			this.printPostorder(node.left);
 		}
 
 		if (node.right != null) {
-			printPostorder(node.right);
+			this.printPostorder(node.right);
 		}
 
-		System.out.print(node.data.toString()+" ");
+		System.out.print(node.data.toString() + " ");
 	}
 
 	public E highestValue() {
-		return highestValue(overallRoot);
+		return this.highestValue(this.overallRoot);
 	}
 
 	private E highestValue(SearchTreeNode node) {
 		if (node.right == null) {
 			return node.data;
 		}
-		return highestValue(node.right);
+		return this.highestValue(node.right);
 	}
 
 	public E lowestValue() {
-		return lowestValue(overallRoot);
+		return this.lowestValue(this.overallRoot);
 	}
 
 	private E lowestValue(SearchTreeNode node) {
 		if (node.left == null) {
 			return node.data;
 		}
-		return lowestValue(node.left);
+		return this.lowestValue(node.left);
 	}
 
 	public void printFullTree() {
-		printFullTree(overallRoot, 0);
+		this.printFullTree(this.overallRoot, 0);
 		System.out.println();
 	}
 
@@ -171,9 +170,8 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 			return;
 		}
 		if (node.right != null) {
-			printFullTree(node.right, level+1);
-		}
-		else {
+			this.printFullTree(node.right, level + 1);
+		} else {
 			System.out.println();
 		}
 		for (int i = 0; i < level; i++) {
@@ -181,73 +179,82 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 		}
 		System.out.println(node.data);
 		if (node.left != null) {
-			printFullTree(node.left, level+1);
-		}
-		else {
+			this.printFullTree(node.left, level + 1);
+		} else {
 			System.out.println();
 		}
-	} 
+	}
 
 	public int getSize() {
-		return getSize(overallRoot);
+		return this.getSize(this.overallRoot);
 	}
 
 	private int getSize(SearchTreeNode node) {
-		if (node == null)
+		if (node == null) {
 			return 0;
-		return 1 + getSize(node.left) + getSize(node.right);
+		}
+		return 1 + this.getSize(node.left) + this.getSize(node.right);
 	}
 
+	@Override
 	public boolean equals(Object other) {
-		if (!(other instanceof SearchTree))
+		if ( !(other instanceof SearchTree)) {
 			return false;
+		}
 		SearchTree<E> otherTree = (SearchTree<E>) other;
 		return this.overallRoot.equals(otherTree.getRoot());
-	}   
+	}
 
 	public int count(E e) {
-		return count(e, overallRoot);
+		return this.count(e, this.overallRoot);
 	}
 
 	private int count(E e, SearchTreeNode node) {
-		if (node == null)
+		if (node == null) {
 			return 0;
-		if (e.compareTo(node.data) == 0)
-			return 1 + count(e, node.left) + count(e, node.right);
-		return count(e, node.left) + count(e, node.right);
+		}
+		if (e.compareTo(node.data) == 0) {
+			return 1 + this.count(e, node.left) + this.count(e, node.right);
+		}
+		return this.count(e, node.left) + this.count(e, node.right);
 	}
 
 	public boolean contains(E e) {
-		return contains(e, overallRoot);
+		return this.contains(e, this.overallRoot);
 	}
 
 	private boolean contains(E e, SearchTreeNode node) {
-		return (node == null) ? false : (node.data.compareTo(e) == 0 || contains(e, node.left) || contains(e, node.right));
-	} 
+		return (node == null) ? false : (node.data.compareTo(e) == 0 || this.contains(e, node.left) || this
+				.contains(e, node.right));
+	}
 
 	public E[] toArray() {
 		Comparable<?>[] arr = new Comparable[this.getSize()];
-		toArray(arr, overallRoot, 0);
+		this.toArray(arr, this.overallRoot, 0);
 		return (E[]) arr;
 	}
 
 	private int toArray(Comparable<?>[] arr, SearchTreeNode node, int index) {
-		if (index >= arr.length)
+		if (index >= arr.length) {
 			return 0;
+		}
 		int newIndex = index;
-		if (node == null)
+		if (node == null) {
 			return index;
-		if (node.left != null)
-			newIndex = toArray(arr, node.left, index);
+		}
+		if (node.left != null) {
+			newIndex = this.toArray(arr, node.left, index);
+		}
 		arr[newIndex] = node.data;
 		if (node.right != null) {
-			newIndex = toArray(arr, node.right, newIndex+1);
+			newIndex = this.toArray(arr, node.right, newIndex + 1);
 			return newIndex;
-		}   
-		return newIndex+1;
-	} 
+		}
+		return newIndex + 1;
+	}
 
 	public class SearchTreeNode {
+
 		public E data;
 		public boolean accessed = false;
 		public SearchTreeNode left;
@@ -267,55 +274,60 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 			this.data = e;
 			this.left = leftNode;
 			this.right = rightNode;
-		}  
+		}
 
 		public SearchTreeNode deepCopy() {
-			return deepCopy(this);
-		}   
+			return this.deepCopy(this);
+		}
 
 		public SearchTreeNode deepCopy(SearchTreeNode node) {
-			if (node == null)
+			if (node == null) {
 				return null;
+			}
 			SearchTreeNode newNode = new SearchTreeNode(node.data);
-			newNode.left = deepCopy(node.left);
-			newNode.right = deepCopy(node.right);
+			newNode.left = this.deepCopy(node.left);
+			newNode.right = this.deepCopy(node.right);
 			return newNode;
 		}
 
+		@Override
 		public String toString() {
 			return "" + this.data;
 		}
 
 		public boolean equals(SearchTreeNode node) {
-			if (node == null)
+			if (node == null) {
 				return false;
-			return (this.data.compareTo(node.data) == 0) && ((this.left != null) ? this.left.equals(node.left) : (node.left == null)) && ((this.right != null) ? this.right.equals(node.right) : (node.right == null));
-		}     
+			}
+			return (this.data.compareTo(node.data) == 0)
+					&& ((this.left != null) ? this.left.equals(node.left) : (node.left == null))
+					&& ((this.right != null) ? this.right.equals(node.right) : (node.right == null));
+		}
 
-	}   
+	}
 
 	/*
-	private SearchTreeNode lowestNode(SearchTreeNode node) {
-		return (node == null) ? null : ((node.left == null) ? node : lowestNode(node.left));
-	}
+	 * private SearchTreeNode lowestNode(SearchTreeNode node) { return (node == null) ?
+	 * null : ((node.left == null) ? node : lowestNode(node.left)); }
 	 */
 
 	public void resetAccesses() {
-		resetAccesses(overallRoot);
+		this.resetAccesses(this.overallRoot);
 	}
 
 	private void resetAccesses(SearchTreeNode node) {
 		if (node != null) {
 			node.accessed = false;
-			resetAccesses(node.left);   
-			resetAccesses(node.right); 
+			this.resetAccesses(node.left);
+			this.resetAccesses(node.right);
 		}
-	} 
+	}
 
+	@Override
 	public Iterator<E> iterator() {
-		//return new SearchTreeArrayIterator<E>();
+		// return new SearchTreeArrayIterator<E>();
 		return new SearchTreeArrayIterator<E>();
-	}        
+	}
 
 	private class SearchTreeArrayIterator<T extends E> implements Iterator<E> {
 
@@ -323,54 +335,44 @@ class SearchTree<E extends Comparable<E>> implements Iterable<E>{
 
 		private Comparable<?>[] elements = SearchTree.this.toArray();
 
+		@Override
 		public boolean hasNext() {
-			return current < elements.length;
+			return this.current < this.elements.length;
 		}
 
+		@Override
 		public T next() {
-			return (T) elements[current++];
+			return (T) this.elements[this.current++];
 		}
 
-		public void remove() { throw new UnsupportedOperationException("Removal is not yet supported"); }
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException("Removal is not yet supported");
+		}
 
-	} 
+	}
 
 	/*
-   private class SearchTreeIterator implements Iterator<E> {
-
-      {
-         SearchTree.this.resetAccesses();
-      }
-
-      private SearchTreeNode currentNode = lowestNode(SearchTree.this.overallRoot);
-
-      public boolean hasNext() { 
-         return currentNode != null; }
-
-      private SearchTreeNode nextNode(SearchTreeNode node) {
-         if (node == null)
-            return null;
-         if (node.left != null && !node.left.accessed)
-            return nextNode(node.left);
-         if (!node.accessed)
-            return node;
-         if (node.right != null && !node.right.accessed)
-            return nextNode(node.right);
-         return nextNode(node.parent);           
-      }
-
-      public E next() {
-         SearchTreeNode retNode = currentNode;
-         retNode.accessed = true;
-         currentNode = nextNode(retNode);
-         return retNode.data;
-      }
-
-      public void remove() {
-         throw new UnsupportedOperationException("Removal is not yet supported");
-      }   
-
-   }
-	 */   
+	 * private class SearchTreeIterator implements Iterator<E> {
+	 *
+	 * { SearchTree.this.resetAccesses(); }
+	 *
+	 * private SearchTreeNode currentNode = lowestNode(SearchTree.this.overallRoot);
+	 *
+	 * public boolean hasNext() { return currentNode != null; }
+	 *
+	 * private SearchTreeNode nextNode(SearchTreeNode node) { if (node == null) return
+	 * null; if (node.left != null && !node.left.accessed) return nextNode(node.left); if
+	 * (!node.accessed) return node; if (node.right != null && !node.right.accessed) return
+	 * nextNode(node.right); return nextNode(node.parent); }
+	 *
+	 * public E next() { SearchTreeNode retNode = currentNode; retNode.accessed = true;
+	 * currentNode = nextNode(retNode); return retNode.data; }
+	 *
+	 * public void remove() { throw new
+	 * UnsupportedOperationException("Removal is not yet supported"); }
+	 *
+	 * }
+	 */
 
 }

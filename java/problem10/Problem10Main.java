@@ -26,7 +26,7 @@ public class Problem10Main {
 		console.close();
 		System.out.println();
 
-		doMoves(xC, yC, checkerCoords, "");
+		Problem10Main.doMoves(xC, yC, checkerCoords, "");
 	}
 
 	public static void doMoves(int xC, int yC, ArrayList<int[]> otherCheckers, String moveString) {
@@ -35,21 +35,29 @@ public class Problem10Main {
 			if (xC - 1 >= 1) {
 				boolean clearPath = true;
 				for (int[] checker : otherCheckers) {
-					if (checker[0] == xC - 1 && checker[1] == yC)
+					if (checker[0] == xC - 1 && checker[1] == yC) {
 						clearPath = false;
+					}
 				}
 				if (clearPath) {
-					doMoves(xC - 1, yC, otherCheckers, moveString + "L"); // do one space to the left
+					Problem10Main.doMoves(xC - 1, yC, otherCheckers, moveString + "L"); // do
+																						// one
+																						// space
+					// to the left
 				}
 			}
 			if (xC + 1 <= 8) {
 				boolean clearPath = true;
 				for (int[] checker : otherCheckers) {
-					if (checker[0] == xC + 1 && checker[1] == yC)
+					if (checker[0] == xC + 1 && checker[1] == yC) {
 						clearPath = false;
+					}
 				}
 				if (clearPath) {
-					doMoves(xC + 1, yC, otherCheckers, moveString + "R"); // do one space to the right
+					Problem10Main.doMoves(xC + 1, yC, otherCheckers, moveString + "R"); // do
+																						// one
+																						// space
+					// to the right
 				}
 			}
 		} else {

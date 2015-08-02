@@ -9,26 +9,26 @@ public class Problem12Main {
 		console.close();
 		System.out.print("What is the LISP expression? ");
 		String expression = console.nextLine();
-		expression = reorder(expression);
+		expression = Problem12Main.reorder(expression);
 		System.out.println("New expression in non-alien terms: " + expression);
 	}
 
-	public static String reorder(String s){
+	public static String reorder(String s) {
 		String operator = s.substring(1, 2);
 		String term1 = s.substring(3, 4);
 		int startParen = 3;
 		int endParen = 3;
-		if (term1.equals("(")){
+		if (term1.equals("(")) {
 			int newParen = 0;
-			for(int i = startParen+1; i < s.length(); i++){
-				String charAt = s.substring(i, i+1);
-				if(charAt.equals("("))
+			for (int i = startParen + 1; i < s.length(); i++) {
+				String charAt = s.substring(i, i + 1);
+				if (charAt.equals("(")) {
 					newParen++;
-				else if (charAt.equals(")") && newParen > 0)
+				} else if (charAt.equals(")") && newParen > 0) {
 					newParen--;
-				else if (charAt.equals(")") && newParen == 0){
+				} else if (charAt.equals(")") && newParen == 0) {
 					endParen = i;
-					term1 = reorder(s.substring(startParen, endParen+1));
+					term1 = Problem12Main.reorder(s.substring(startParen, endParen + 1));
 					newParen = 1000;
 				}
 			}
@@ -37,17 +37,17 @@ public class Problem12Main {
 		startParen = endParen + 1;
 		endParen++;
 		String term2 = s.substring(startParen, endParen);
-		if (term2.equals("(")){
+		if (term2.equals("(")) {
 			int newParen = 0;
-			for(int i = startParen+1; i < s.length(); i++){
-				String charAt = s.substring(i, i+1);
-				if(charAt.equals("("))
+			for (int i = startParen + 1; i < s.length(); i++) {
+				String charAt = s.substring(i, i + 1);
+				if (charAt.equals("(")) {
 					newParen++;
-				else if (charAt.equals(")") && newParen > 0)
+				} else if (charAt.equals(")") && newParen > 0) {
 					newParen--;
-				else if (charAt.equals(")") && newParen == 0){
+				} else if (charAt.equals(")") && newParen == 0) {
 					endParen = i;
-					term2 = reorder(s.substring(startParen, endParen+1));
+					term2 = Problem12Main.reorder(s.substring(startParen, endParen + 1));
 				}
 			}
 		}
